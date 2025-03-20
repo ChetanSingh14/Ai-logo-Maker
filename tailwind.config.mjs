@@ -1,6 +1,3 @@
-// tailwind.config.mjs
-import { join } from 'path';
-
 export default {
   content: [
     join(__dirname, 'pages/**/*.{js,ts,jsx,tsx}'),
@@ -9,9 +6,10 @@ export default {
   ],
   theme: {
     extend: {
-        colors:{
-            
-        }
+      colors: {
+        primary: '#ed1e61', // ✅ Now `text-primary` will work!
+        foreground: 'hsl(var(--primary-foreground))',
+      },
     },
   },
   plugins: [],

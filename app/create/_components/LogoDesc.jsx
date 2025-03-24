@@ -2,7 +2,7 @@ import React from "react";
 import HeadingDescription from "./HeadingDescription";
 import Lookup from "@/app/_data/Lookup";
 
-function LogoDesc({ onHandleInputChange, formData = {} }) { // ✅ Default empty object
+function LogoDesc({ onHandleInputChange,formData}) { // ✅ Default empty object
   return (
     <div className="my-10">
       <HeadingDescription
@@ -13,8 +13,9 @@ function LogoDesc({ onHandleInputChange, formData = {} }) { // ✅ Default empty
         type="text"
         placeholder={Lookup.InputTitlePlaceholder}
         className="p-4 border rounded-lg mt-5 w-full"
-        value={formData.desc || ""} // ✅ Prevent error if formData is undefined
-        onChange={(e) => onHandleInputChange(e.target.value)}
+        defaultValue={formData?.desc}
+        // value={formData.desc}
+        onChange={(e) => onHandleInputChange("desc",e.target.value)}
       />
     </div>
   );

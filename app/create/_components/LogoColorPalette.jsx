@@ -19,7 +19,7 @@ function LogoColorPallete({onHandleInputChange,formData}) {
                 className="h-24 w-full"
                 key={i}
                 onClick={()=>{setSelectedOption(palette.name);
-                onHandleInputChange(palette.name);}}
+                onHandleInputChange("palette",palette.name);}}
                 style={{ backgroundColor: color }}
               ></div>
             ))}

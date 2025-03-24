@@ -14,9 +14,6 @@ function LogoIdea({formData,onHandleInputChange}) {
     generateLogoDesignIdea();
   },[])
 
-
-  console.log("idea-form",formData);
-
   const generateLogoDesignIdea=async()=>{
    
     setLoading(true)

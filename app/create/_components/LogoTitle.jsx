@@ -19,10 +19,11 @@ function LogoTitle({ onHandleInputChange }) {
         type="text"
         placeholder={Lookup.InputTitlePlaceholder}
         className="p-4 border rounded-lg mt-5 w-full"
-        value={title} // ✅ Ensure input updates properly
+      
+        defaultValue={title}
         onChange={(e) => {
-          setTitle(e.target.value);
-          onHandleInputChange("title", e.target.value); // ✅ Pass field name
+
+          onHandleInputChange("title", e.target.value); 
         }}
       />
     </div>

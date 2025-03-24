@@ -18,7 +18,7 @@ function LogoDesigns({onHandleInputChange,formData}) {
           <div
             key={index}
             onClick={() => {setSelectedOption(design.title);
-            onHandleInputChange(design);}}
+            onHandleInputChange("design",design);}}
             className={`p-1 hover:border-2 border-black rounded-xl ${
               selectedOption === design.title ? "border-2 border-black" : ""
             }`}

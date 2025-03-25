@@ -7,6 +7,7 @@ import LogoDesc from "./_components/LogoDesc";
 import LogoColorPalette from "./_components/LogoColorPalette";
 import LogoDesigns from "./_components/LogoDesigns";
 import LogoIdea from "./_components/LogoIdea";
+import PricingModel from "./_components/PricingModel";
 
 function CreateLogo() {
   const [step, setStep] = useState(1);
@@ -20,21 +21,22 @@ function CreateLogo() {
 
   return (
     <div className="mt-28 p-10 border rounded-xl">
-      {step === 1 && (
-        <LogoTitle onHandleInputChange={onHandleInputChange} formData={formData} />
-      )}
-      {step === 2 && (
-        <LogoDesc onHandleInputChange={onHandleInputChange} formData={formData} />
-      )}
-      {step === 3 && (
-        <LogoColorPalette onHandleInputChange={onHandleInputChange} formData={formData} />
-      )}
-      {step === 4 && (
-        <LogoDesigns onHandleInputChange={onHandleInputChange} formData={formData} />
-      )}
-      {step === 5 && (
-        <LogoIdea onHandleInputChange={onHandleInputChange} formData={formData} />
-      )}
+    {step == 1 ? (
+      <LogoTitle onHandleInputChange={onHandleInputChange} formData={formData} />
+    ) : step == 2 ? (
+      <LogoDesc onHandleInputChange={onHandleInputChange} formData={formData} />
+    ) : step == 3 ? (
+      <LogoColorPalette onHandleInputChange={onHandleInputChange} formData={formData} />
+    ) : step == 4 ? (
+      <LogoDesigns onHandleInputChange={onHandleInputChange} formData={formData} />
+    ) : step == 5 ? (
+      <LogoIdea onHandleInputChange={onHandleInputChange} formData={formData} />
+    ) : step == 6 ? (
+      <PricingModel onHandleInputChange={onHandleInputChange} formData={formData} />
+    ) :null}
+
+  
+      
 
       <div className="flex items-center justify-between mt-10">
         {step !== 1 && (

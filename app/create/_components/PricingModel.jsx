@@ -1,9 +1,18 @@
-import React from "react";
+"use client";
+import React, { useEffect } from "react";
 import HeadingDescription from "./HeadingDescription";
 import Lookup from "@/app/_data/Lookup";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-function PricingModel() {
+import { SignInButton } from "@clerk/nextjs";
+import { useUser } from "@clerk/nextjs";
+function PricingModel({ formData }) {
+  const {user} = useUser();
+  useEffect(() => {
+    if (formData?.title && typeof window !== "undefined") {
+      localStorage.setItem("formData", JSON.stringify(formData));
+    }
+  }, [formData]);
   return (
     <div className="">
       <HeadingDescription
@@ -25,16 +34,21 @@ function PricingModel() {
             <h2 className="font-medium text-2xl">{pricing.title}</h2>
             <div>
               {pricing.features.map((feature, index) => (
-                <h2 className="text-lg  mt-3" key={index}>{feature}</h2>
+                <h2 className="text-lg  mt-3" key={index}>
+                  {feature}
+                </h2>
               ))}
             </div>
-            <Button className='mt-5 '>{pricing.button}</Button>
+            {user ? (
+              <Button className="mt-5 ">{pricing.button}</Button>
+            ) : (
+              <SignInButton mode="modal" forceRedirectUrl={'/generate-logo?type='+pricing.title}>
+                <Button className="mt-5 ">{pricing.button}</Button>
+              </SignInButton>
+            )}
           </div>
-          
         ))}
-         
       </div>
-  
     </div>
   );
 }

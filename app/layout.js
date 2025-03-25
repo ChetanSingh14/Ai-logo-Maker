@@ -1,6 +1,7 @@
 import {Tektur } from "next/font/google";
 import "./globals.css";
 import Provider from "./Provider";
+import { ClerkProvider } from "@clerk/nextjs";
 
 const tektur=Tektur({
   subsets: ["latin"],
@@ -13,6 +14,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
+    <ClerkProvider>
     <html lang="en">
       <body
         className={tektur.className} 
@@ -23,5 +25,6 @@ export default function RootLayout({ children }) {
   
       </body>
     </html>
+    </ClerkProvider>
   );
 }

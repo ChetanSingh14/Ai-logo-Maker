@@ -18,10 +18,10 @@ function LogoIdea({formData,onHandleInputChange}) {
    
     setLoading(true)
     const PROMPT = Prompt.DESIGN_IDEA_PROMPT
-    .replace('{logoType}', formData?.design?.title || "Default Type")
+    .replace('{logoType}', formData?.designs?.title || "Default Type")
     .replace('{logoTitle}', formData?.title )
-    .replace('{logoDesc}', formData?.desc )
-    .replace('{logoPrompt}', formData?.design?.prompt);
+    .replace('{logoDesc}', formData?.description )
+    .replace('{logoPrompt}', formData?.designs?.prompt);
  
 
     console.log(PROMPT);

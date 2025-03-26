@@ -37,6 +37,21 @@ const generationConfig = {
       },
     ],
   });
+   export const AILogoPrompt = model.startChat({
+    generationConfig,
+    history: [
+      {
+        role: "user",
+        parts: [
+          {text: "Generate a text prompt to create Logo for Logo Title/Brand name : mn bnm mnb nm ,with description:  mnb mb, with Color combination of Ocean Blues, also include the  and include Black And White Line Logos design idea and Referring to this Logo Prompt:Create a minimalist and modern logo design that is clean, simple, and visually appealing. The logo should be easy to recognize and remember, and it should be versatile enough to be used in a variety of contexts. Use a combination of typography and simple geometric shapes to create a visually striking and memorable design. The logo should be timeless and elegant, and it should convey a sense of professionalism and sophistication.  Give me result in JSON portal with prompt field only\n"},
+        ],
+      },
+      {
+        role: "model",
+        parts: [
+          {text: "```json\n{\n  \"prompt\": \"Create a minimalist and modern logo design for the brand \\\"mn bnm mnb nm\\\". The description for the brand is \\\"mnb mb\\\". The logo should incorporate Ocean Blues in its color palette. It should be clean, simple, and visually appealing, easy to recognize and remember. Design should be versatile for various contexts.  Utilize a combination of typography and simple geometric shapes to create a visually striking and memorable design. Explore Black and White line logo designs as a key concept. Aim for a timeless and elegant aesthetic, conveying professionalism and sophistication.\"\n}\n```\n"},
+        ],
+      },
+    ],
+  });
 
-  // const result = await chatSession.sendMessage("INSERT_INPUT_HERE");
-  // console.log(result.response.text());

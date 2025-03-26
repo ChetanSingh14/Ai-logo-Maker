@@ -26,7 +26,7 @@ function CreateLogo() {
     ) : step === 2 ? (
       <LogoDesc onHandleInputChange={(v) => onHandleInputChange('description', v)} formData={formData} />
     ) : step === 3 ? (
-      <LogoColorPalette onHandleInputChange={(v) => onHandleInputChange('colorPalette', v)} formData={formData} />
+      <LogoColorPalette onHandleInputChange={(v) => onHandleInputChange('Palette', v)} formData={formData} />
     ) : step === 4 ? (
       <LogoDesigns onHandleInputChange={(v) => onHandleInputChange('designs', v)} formData={formData} />
     ) : step === 5 ? (

@@ -2,6 +2,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { UserDetailContex } from "../_context/UserDetailContext";
 import Prompt from "../_data/Prompt";
+import axios from "axios";
 
 function GenerateLogo() {
   const { userDetail, setUserDetail } = useContext(UserDetailContex);
@@ -21,7 +22,7 @@ function GenerateLogo() {
     }
   },[formData])
 
-  const GenerateAILogo = () => {
+  const GenerateAILogo = async() => {
     const PROMPT = Prompt.LOGO_PROMPT.replace("{logoTitle}", formData?.title)
       .replace("{logoDesc}", formData?.description)
       .replace("{logoColor}", formData?.Palette)
@@ -31,6 +32,10 @@ function GenerateLogo() {
 
       //generate logo prompt from AI
       // generate logo image 
+      const result=await axios.post('/api/ai-logo-model',{
+        prompt:PROMPT
+      })
+      console.log(result?.data)
   };
 
   return <div>gekjbfds</div>;

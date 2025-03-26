@@ -5,7 +5,8 @@ import LogoDesig from "@/app/_data/LogoDesig";
 import Image from "next/image"; // ✅ Import Image component (Next.js)
 
 function LogoDesigns({onHandleInputChange,formData}) { 
-  const [selectedOption, setSelectedOption] = useState(formData?.design?.title);
+  const [selectedOption, setSelectedOption] = useState(formData?.design?.title || "");
+
 
   return (
     <div className="my-10">
@@ -18,7 +19,7 @@ function LogoDesigns({onHandleInputChange,formData}) {
           <div
             key={index}
             onClick={() => {setSelectedOption(design.title);
-            onHandleInputChange("design",design);}}
+            onHandleInputChange(design);}}
             className={`p-1 hover:border-2 border-black rounded-xl ${
               selectedOption === design.title ? "border-2 border-black" : ""
             }`}

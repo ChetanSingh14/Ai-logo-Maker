@@ -23,7 +23,7 @@ function LogoTitle({ onHandleInputChange }) {
         defaultValue={title}
         onChange={(e) => {
 
-          onHandleInputChange("title", e.target.value); 
+          onHandleInputChange( e.target.value); 
         }}
       />
     </div>

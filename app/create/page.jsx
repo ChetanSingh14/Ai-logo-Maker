@@ -21,19 +21,19 @@ function CreateLogo() {
 
   return (
     <div className="mt-28 p-10 border rounded-xl">
-    {step == 1 ? (
-      <LogoTitle onHandleInputChange={onHandleInputChange} formData={formData} />
-    ) : step == 2 ? (
-      <LogoDesc onHandleInputChange={onHandleInputChange} formData={formData} />
-    ) : step == 3 ? (
-      <LogoColorPalette onHandleInputChange={onHandleInputChange} formData={formData} />
-    ) : step == 4 ? (
-      <LogoDesigns onHandleInputChange={onHandleInputChange} formData={formData} />
-    ) : step == 5 ? (
-      <LogoIdea onHandleInputChange={onHandleInputChange} formData={formData} />
-    ) : step == 6 ? (
-      <PricingModel onHandleInputChange={onHandleInputChange} formData={formData} />
-    ) :null}
+        {step === 1 ? (
+      <LogoTitle onHandleInputChange={(v) => onHandleInputChange('title', v)} formData={formData} />
+    ) : step === 2 ? (
+      <LogoDesc onHandleInputChange={(v) => onHandleInputChange('description', v)} formData={formData} />
+    ) : step === 3 ? (
+      <LogoColorPalette onHandleInputChange={(v) => onHandleInputChange('colorPalette', v)} formData={formData} />
+    ) : step === 4 ? (
+      <LogoDesigns onHandleInputChange={(v) => onHandleInputChange('designs', v)} formData={formData} />
+    ) : step === 5 ? (
+      <LogoIdea onHandleInputChange={(v) => onHandleInputChange('idea', v)} formData={formData} />
+    ) : step === 6 ? (
+      <PricingModel onHandleInputChange={(v) => onHandleInputChange('pricing', v)} formData={formData} />
+    ) : null}
 
   
       

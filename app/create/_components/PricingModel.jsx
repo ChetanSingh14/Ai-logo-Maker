@@ -8,8 +8,10 @@ import { SignInButton } from "@clerk/nextjs";
 import { useUser } from "@clerk/nextjs";
 function PricingModel({ formData }) {
   const {user} = useUser();
-  useEffect(() => {
-    if (formData?.title && typeof window !== "undefined") {
+  console.log("User Data:", user);
+
+  useEffect(() => {  
+    if (formData?.title && typeof window !== 'undefined') {
       localStorage.setItem("formData", JSON.stringify(formData));
     }
   }, [formData]);
@@ -39,13 +41,19 @@ function PricingModel({ formData }) {
                 </h2>
               ))}
             </div>
-            {user ? (
+            {user ? 
               <Button className="mt-5 ">{pricing.button}</Button>
-            ) : (
-              <SignInButton mode="modal" forceRedirectUrl={'/generate-logo?type='+pricing.title}>
-                <Button className="mt-5 ">{pricing.button}</Button>
-              </SignInButton>
-            )}
+             : 
+             <SignInButton mode="modal">
+             {(props) => (
+               <Button {...props} className="mt-5" onClick={() => console.log("Clicked!")}>
+                 {pricing.button}
+               </Button>
+             )}
+           </SignInButton>
+           
+
+        }
           </div>
         ))}
       </div>

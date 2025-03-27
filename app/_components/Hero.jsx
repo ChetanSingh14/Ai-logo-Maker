@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import Lookup from "../_data/Lookup";
 import { Button } from "@/components/ui/button";
 import  Link from "next/link";
+import LogoList from "../dashboard/_components/LogoList";
 
 function Hero() {
   const [logoTitle, setLogoTitle] = useState("");
@@ -22,12 +23,15 @@ function Hero() {
           placeholder={Lookup.InputTitlePlaceholder}
           className="p-3 border rounded-md w-full shadow-md"
         />
+        
        <Link href={"/create?title=" + logoTitle}>
   <Button className="p-6">Get Started</Button>
 </Link>
 
+
        
       </div>
+      <LogoList/>
     </div>
   );
 }

@@ -1,5 +1,5 @@
 "use client";
-import React, { useContext, useEffect, useState, Suspense } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { UserDetailContex } from "../_context/UserDetailContext";
 import Lookup from "../_data/Lookup";
 import Prompt from "../_data/Prompt";
@@ -15,27 +15,9 @@ function GenerateLogo() {
   const [formData, setFormData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [logoImage, setLogoImage] = useState(null);
-  const router = useRouter();
-
-  return (
-    <Suspense fallback={<div>Loading...</div>}>
-      <GenerateLogoContent 
-        userDetail={userDetail} 
-        formData={formData} 
-        setFormData={setFormData} 
-        loading={loading} 
-        setLoading={setLoading} 
-        logoImage={logoImage} 
-        setLogoImage={setLogoImage} 
-        router={router} 
-      />
-    </Suspense>
-  );
-}
-
-function GenerateLogoContent({ userDetail, formData, setFormData, loading, setLoading, logoImage, setLogoImage, router }) {
   const searchParams = useSearchParams();
   const modelType = searchParams.get("type");
+  const router = useRouter();
 
   useEffect(() => {
     if (typeof window !== "undefined" && userDetail?.email) {

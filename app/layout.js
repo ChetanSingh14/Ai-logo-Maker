@@ -2,6 +2,7 @@ import {Tektur } from "next/font/google";
 import "./globals.css";
 import Provider from "./Provider";
 import { ClerkProvider } from "@clerk/nextjs";
+import { Toaster } from "@/components/ui/sonner"
 
 const tektur=Tektur({
   subsets: ["latin"],
@@ -22,6 +23,8 @@ export default function RootLayout({ children }) {
         <Provider>
         {children}
         </Provider>
+        
+        <Toaster/>
   
       </body>
     </html>

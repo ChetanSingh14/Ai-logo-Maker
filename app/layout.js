@@ -1,6 +1,6 @@
 import {Tektur } from "next/font/google";
 import "./globals.css";
-import Provider from "./Provider";
+import Provider from "../app/Provider";
 
 import { ClerkProvider } from "@clerk/nextjs";
 import { Toaster } from "@/components/ui/sonner"

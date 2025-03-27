@@ -22,7 +22,8 @@ function LogoList() {
     });
   };
   const ViewLogo=(image)=>{
-
+   const imageWindow=window.open();
+   imageWindow.document.write(`<img src="${image}" alt="Base64 Image"/>`)
   }
   return (
     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 mt-10">

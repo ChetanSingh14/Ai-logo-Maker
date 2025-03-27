@@ -1,10 +1,11 @@
 import { NextResponse } from "next/server";
 import { AILogoPrompt } from "@/configs/AiModels";
 import axios from "axios";
+import { doc, setDoc } from "firebase/firestore";
 
 export async function POST(req) {
   try {
-    const { prompt } = await req.json();
+    const { prompt,email,title,description } = await req.json();
 
     if (!prompt) {
       return NextResponse.json({ error: "Prompt is required" }, { status: 400 });
@@ -34,6 +35,15 @@ export async function POST(req) {
     const base64ImageWithMime = `data:image/png;base64,${base64Image}`; 
 
     //save image to firebase 
+    try{
+        await setDoc(doc(db,"users",email,"logos",Date.now().toString()),{
+            image:base64ImageWithMime,
+            title:title,
+            description:description
+        })
+    }catch{
+
+    }
 
     console.log(base64ImageWithMime);
 
